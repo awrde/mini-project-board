@@ -16,5 +16,14 @@
     "nodemon": "^2.0.12"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "항해99/재정비/미니프로젝트",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awrde/mini-project-board.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/awrde/mini-project-board/issues"
+  },
+  "homepage": "https://github.com/awrde/mini-project-board#readme"
 }

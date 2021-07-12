@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const app = express()
 const ejs = require('ejs')
 const Article = require('./models/article')
+const { find } = require('./models/article')
 
 mongoose.connect('mongodb://test:test@localhost:27017/admin', {
   useNewUrlParser: true,
@@ -14,9 +15,14 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   console.log('전체 리스트 보기')
-  res.render('./main', {})
+  res.render('./main')
+})
+
+app.get('/hh99/board/list', async (req, res) => {
+  const articles = await Article.find({}).sort()
+  res.send({ articles: articles })
 })
 
 app.get('/hh99/board/post', async (req, res) => {
@@ -32,7 +38,7 @@ app.post('/hh99/board/post', async (req, res) => {
     author: req.body.author,
   })
   await article.save()
-  res.send('good')
+  res.send(article)
 })
 
 app.get('/hh99/board/view?objid=${objid}', (req, res) => {

@@ -32,7 +32,9 @@
                 url: "/hh99/board/list",
                 data: {},
                 success: function (response) {
+                    console.log(response)
                     let articles = response['articles'];
+                    
                     for(let i = 0; i < articles.length; i++) {
                         let title = articles[i]['title']
                         let author = articles[i]['author']

@@ -32,7 +32,6 @@
                 url: "/hh99/board/list",
                 data: {},
                 success: function (response) {
-                    console.log(response)
                     let articles = response['articles'];
                     
                     for(let i = 0; i < articles.length; i++) {
@@ -85,7 +84,7 @@
             </tr>
             </thead>
             <tbody id="articles">
-            <tr onclick="view()">
+            <!-- <tr onclick="view()">
                 <th scope="row">1</th>
                 <td>글쓴이1</td>
                 <td>글 제목이 들어갑니다</td>
@@ -99,7 +98,7 @@
                 <th scope="row">3</th>
                 <td>글쓴이3</td>
                 <td>글 제목이 들어갑니다</td>
-            </tr>
+            </tr> -->
             </tbody>
         </table>
     </div>

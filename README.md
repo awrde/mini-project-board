@@ -11,3 +11,8 @@
 
 npm init -y
 npm i ejs express mongoose mongoose-auto-increment nodemon -S
+
+# 테스트 코드 관련
+
+npm i jest -D
+npm i supertest --save-dev

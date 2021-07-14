@@ -21,7 +21,8 @@ app.get('/', async (req, res) => {
 })
 
 app.get('/hh99/board/list', async (req, res) => {
-  const articles = await Article.find({}).sort()
+  const articles = await Article.find({}).sort({ no: 'desc' })
+
   res.send({ articles: articles })
 })
 
@@ -41,15 +42,17 @@ app.post('/hh99/board/post', async (req, res) => {
   res.send(article)
 })
 
-app.get('/hh99/board/view?objid=${objid}', (req, res) => {
+app.get('/hh99/board/view/', async (req, res) => {
   console.log('detail 보기')
   res.render('./view')
 })
 
-// app.get('/hh99/board/view/<objid>', (req, res) => {
-//   console.log('한 개의 포스팅에 대한 정보 보기')
-//   res.render('/hh99_miniprj_easy_post', {})
-// })
+app.get('/hh99/board/view/:id', async (req, res) => {
+  console.log('들어왔나')
+  const article = await Article.findById(req.params.id)
+  console.log(article)
+  res.send(article)
+})
 
 app.listen(5000, function () {
   console.log('실행중...')
